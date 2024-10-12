@@ -20,13 +20,17 @@ java_sdk_library {
     name: "framework-crashrecovery",
     srcs: [
         "java/**/*.java",
+        ":framework-crashrecovery-sources",
     ],
     apex_available: [
-            "com.android.crashrecovery",
-     ],
+        "com.android.crashrecovery",
+    ],
+    libs: [
+        "modules-utils-preconditions",
+    ],
     defaults: ["framework-module-defaults"],
     sdk_version: "module_current",
     impl_library_visibility: [
-            "//packages/modules/CrashRecovery:__subpackages__"
+        "//packages/modules/CrashRecovery:__subpackages__",
     ],
 }
