@@ -16,20 +16,56 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
+java_library {
+    name: "crashrecovery-statslog",
+    srcs: [
+        ":statslog-crashrecovery-java-gen",
+    ],
+    libs: [
+        "framework-statsd.stubs.module_lib",
+    ],
+    apex_available: [
+        "com.android.crashrecovery",
+    ],
+    installable: false,
+    min_sdk_version: "35",
+    sdk_version: "system_server_current",
+}
+
 java_sdk_library {
     name: "service-crashrecovery",
     srcs: [
         "java/**/*.java",
-     ],
+        ":services-crashrecovery-module-sources",
+        ":service-crashrecovery-shared-srcs",
+    ],
     defaults: [
         "framework-system-server-module-defaults",
+    ],
+    static_libs: [
+        "android.crashrecovery.flags-aconfig-java",
+        "crashrecovery-statslog",
+        "modules-utils-preconditions",
+        "modules-utils-backgroundthread",
+        "modules-utils-binary-xml",
+        "modules-utils-fastxmlserializer",
+        "PlatformProperties",
+    ],
+    libs: [
+        "unsupportedappusage",
+        "framework-configinfrastructure.stubs.module_lib",
+        "framework-crashrecovery.impl",
+        "framework-statsd.stubs.module_lib",
     ],
     permitted_packages: [],
     apex_available: [
         "com.android.crashrecovery",
     ],
-    sdk_version: "module_current",
+    sdk_version: "system_server_current",
     impl_library_visibility: [
-            "//packages/modules/CrashRecovery:__subpackages__"
+        "//packages/modules/CrashRecovery:__subpackages__",
+    ],
+    aconfig_declarations: [
+        "android.crashrecovery.flags-aconfig",
     ],
 }

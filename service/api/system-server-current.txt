@@ -1,1 +1,45 @@
 // Signature format: 2.0
+package com.android.server {
+
+  @FlaggedApi("android.crashrecovery.flags.enable_crashrecovery") public class PackageWatchdog {
+    method public void dump(@NonNull java.io.PrintWriter);
+    method @NonNull public static com.android.server.PackageWatchdog getInstance(@NonNull android.content.Context);
+    method public void onPackageFailure(@NonNull java.util.List<android.content.pm.VersionedPackage>, int);
+    field public static final int FAILURE_REASON_APP_CRASH = 3; // 0x3
+    field public static final int FAILURE_REASON_APP_NOT_RESPONDING = 4; // 0x4
+    field public static final int FAILURE_REASON_BOOT_LOOP = 5; // 0x5
+    field public static final int FAILURE_REASON_EXPLICIT_HEALTH_CHECK = 2; // 0x2
+    field public static final int FAILURE_REASON_NATIVE_CRASH = 1; // 0x1
+    field public static final int FAILURE_REASON_UNKNOWN = 0; // 0x0
+  }
+
+  public static interface PackageWatchdog.PackageHealthObserver {
+    method @NonNull public String getUniqueIdentifier();
+    method public default boolean isPersistent();
+    method public default boolean mayObservePackage(@NonNull String);
+    method public default int onBootLoop(int);
+    method public default boolean onExecuteBootLoopMitigation(int);
+    method public boolean onExecuteHealthCheckMitigation(@Nullable android.content.pm.VersionedPackage, int, int);
+    method public int onHealthCheckFailed(@Nullable android.content.pm.VersionedPackage, int, int);
+  }
+
+}
+
+package com.android.server.rollback {
+
+  @FlaggedApi("android.crashrecovery.flags.enable_crashrecovery") public final class RollbackPackageHealthObserver implements com.android.server.PackageWatchdog.PackageHealthObserver {
+    ctor public RollbackPackageHealthObserver(@NonNull android.content.Context);
+    method @NonNull public String getUniqueIdentifier();
+    method public boolean isPersistent();
+    method public boolean mayObservePackage(@NonNull String);
+    method @AnyThread @NonNull public void notifyRollbackAvailable(@NonNull android.content.rollback.RollbackInfo);
+    method @AnyThread public void onBootCompletedAsync();
+    method public int onBootLoop(int);
+    method public boolean onExecuteBootLoopMitigation(int);
+    method public boolean onExecuteHealthCheckMitigation(@Nullable android.content.pm.VersionedPackage, int, int);
+    method public int onHealthCheckFailed(@Nullable android.content.pm.VersionedPackage, int, int);
+    method @AnyThread @NonNull public void startObservingHealth(@NonNull java.util.List<java.lang.String>, @NonNull long);
+  }
+
+}
+
