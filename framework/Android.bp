@@ -32,5 +32,7 @@ java_sdk_library {
     sdk_version: "module_current",
     impl_library_visibility: [
         "//packages/modules/CrashRecovery:__subpackages__",
+        "//frameworks/base/tests:__subpackages__",
+        "//cts:__subpackages__",
     ],
 }

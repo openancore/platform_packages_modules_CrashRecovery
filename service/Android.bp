@@ -64,6 +64,10 @@ java_sdk_library {
     sdk_version: "system_server_current",
     impl_library_visibility: [
         "//packages/modules/CrashRecovery:__subpackages__",
+        "//cts:__subpackages__",
+        "//frameworks/base/tests:__subpackages__",
+        "//frameworks/base/services/tests:__subpackages__",
+        "//test/cts-root/tests/packagewatchdog",
     ],
     aconfig_declarations: [
         "android.crashrecovery.flags-aconfig",
