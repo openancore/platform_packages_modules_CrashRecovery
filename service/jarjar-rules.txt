@@ -1,0 +1,10 @@
+rule android.sysprop.** com.android.server.crashrecovery.sysprop.@1
+rule com.android.server.crashrecovery.proto.** com.android.server.crashrecovery.module.proto.@1
+rule com.android.modules.utils.** com.android.server.crashrecovery.modules.utils.@1
+rule com.android.internal.util.** com.android.server.crashrecovery.internal.util.@1
+
+rule android.util.LongArrayQueue com.android.server.crashrecovery.util.LongArrayQueue
+rule android.util.IndentingPrintWriter com.android.server.crashrecovery.util.IndentingPrintWriter
+rule android.util.ArrayUtils com.android.server.crashrecovery.ArrayUtils
+rule android.util.XmlUtils com.android.server.crashrecovery.XmlUtils
+rule android.util.FileUtils com.android.server.crashrecovery.FileUtils
