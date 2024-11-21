@@ -4,6 +4,7 @@ package com.android.server {
   @FlaggedApi("android.crashrecovery.flags.enable_crashrecovery") public class PackageWatchdog {
     method public void dump(@NonNull java.io.PrintWriter);
     method @NonNull public static com.android.server.PackageWatchdog getInstance(@NonNull android.content.Context);
+    method public static boolean isRecoveryTriggeredReboot();
     method public void onPackageFailure(@NonNull java.util.List<android.content.pm.VersionedPackage>, int);
     field public static final int FAILURE_REASON_APP_CRASH = 3; // 0x3
     field public static final int FAILURE_REASON_APP_NOT_RESPONDING = 4; // 0x4

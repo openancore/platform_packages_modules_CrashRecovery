@@ -28,6 +28,7 @@ java_sdk_library {
     libs: [
         "modules-utils-preconditions",
     ],
+    permitted_packages: ["android.service.watchdog"],
     defaults: ["framework-module-defaults"],
     sdk_version: "module_current",
     impl_library_visibility: [
