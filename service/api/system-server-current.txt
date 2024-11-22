@@ -5,13 +5,16 @@ package com.android.server {
     method public void dump(@NonNull java.io.PrintWriter);
     method @NonNull public static com.android.server.PackageWatchdog getInstance(@NonNull android.content.Context);
     method public static boolean isRecoveryTriggeredReboot();
-    method public void onPackageFailure(@NonNull java.util.List<android.content.pm.VersionedPackage>, int);
+    method public void notifyPackageFailure(@NonNull java.util.List<android.content.pm.VersionedPackage>, int);
     field public static final int FAILURE_REASON_APP_CRASH = 3; // 0x3
     field public static final int FAILURE_REASON_APP_NOT_RESPONDING = 4; // 0x4
     field public static final int FAILURE_REASON_BOOT_LOOP = 5; // 0x5
     field public static final int FAILURE_REASON_EXPLICIT_HEALTH_CHECK = 2; // 0x2
     field public static final int FAILURE_REASON_NATIVE_CRASH = 1; // 0x1
     field public static final int FAILURE_REASON_UNKNOWN = 0; // 0x0
+    field public static final int HIGH_USER_IMPACT_THRESHOLD = 71; // 0x47
+    field public static final int LEAST_PACKAGE_HEALTH_OBSERVER_IMPACT = 0; // 0x0
+    field public static final int MEDIUM_USER_IMPACT_THRESHOLD = 20; // 0x14
   }
 
   public static interface PackageWatchdog.PackageHealthObserver {
