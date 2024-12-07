@@ -1,3 +1,4 @@
+rule android.crashrecovery.flags.** android.crashrecovery.server.flags.@1
 rule android.sysprop.** com.android.server.crashrecovery.sysprop.@1
 rule com.android.server.crashrecovery.proto.** com.android.server.crashrecovery.module.proto.@1
 rule com.android.modules.utils.** com.android.server.crashrecovery.modules.utils.@1

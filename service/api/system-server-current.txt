@@ -15,9 +15,9 @@ package com.android.server {
     field public static final int FAILURE_REASON_EXPLICIT_HEALTH_CHECK = 2; // 0x2
     field public static final int FAILURE_REASON_NATIVE_CRASH = 1; // 0x1
     field public static final int FAILURE_REASON_UNKNOWN = 0; // 0x0
-    field public static final int HIGH_USER_IMPACT_THRESHOLD = 71; // 0x47
-    field public static final int LEAST_PACKAGE_HEALTH_OBSERVER_IMPACT = 0; // 0x0
-    field public static final int MEDIUM_USER_IMPACT_THRESHOLD = 20; // 0x14
+    field public static final int USER_IMPACT_THRESHOLD_HIGH = 71; // 0x47
+    field public static final int USER_IMPACT_THRESHOLD_MEDIUM = 20; // 0x14
+    field public static final int USER_IMPACT_THRESHOLD_NONE = 0; // 0x0
   }
 
   public static interface PackageWatchdog.PackageHealthObserver {

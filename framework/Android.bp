@@ -25,10 +25,14 @@ java_sdk_library {
     apex_available: [
         "com.android.crashrecovery",
     ],
+    static_libs: ["android.crashrecovery.flags-aconfig-java"],
     libs: [
         "modules-utils-preconditions",
     ],
-    permitted_packages: ["android.service.watchdog"],
+    permitted_packages: [
+        "android.service.watchdog",
+        "android.crashrecovery",
+    ],
     defaults: ["framework-module-defaults"],
     sdk_version: "module_current",
     impl_library_visibility: [
